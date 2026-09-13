@@ -1,35 +1,37 @@
 using Unity.VisualScripting;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int speed = 7;
+    [SerializeField] private int moveSpeed = 7;
 
-    void Update()
+    private void Update()
     {
-        Vector2 inputDirection = Vector2.zero;
+        Vector2 inputVector = new Vector2(0, 0);
 
-        // Проверяем, существует ли клавиатура
-        if (Keyboard.current != null)
+        if (Input.GetKey(KeyCode.W))
         {
-            // Считываем нажатия клавиш WASD или стрелок
-            if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed) inputDirection.y = 1f;
-            if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) inputDirection.y = -1f;
-            if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) inputDirection.x = -1f;
-            if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) inputDirection.x = 1f;
+            inputVector.y = +1;
         }
-
-        // Нормализуем вектор, чтобы персонаж не двигался быстрее по диагонали
-        if (inputDirection.magnitude > 1f)
+        if (Input.GetKey(KeyCode.S))
         {
-            inputDirection.Normalize();
+            inputVector.y = -1;
         }
+        if (Input.GetKey(KeyCode.A))
+        {
+            inputVector.x = -1;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            inputVector.x = +1;
+        }
+        inputVector = inputVector.normalized;
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+        transform.position += moveDir * moveSpeed * Time.deltaTime;
 
-        // Переводим 2D ввод в 3D пространство (X - влево/вправо, Z - вперед/назад)
-        Vector3 moveMovement = new Vector3(inputDirection.x, 0f, inputDirection.y);
-
-        // Двигаем объект в мировых координатах
-        transform.Translate(moveMovement * speed * Time.deltaTime, Space.World);
-    }
+        float rotateSpeed = 10f;
+        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+        Debug.Log(inputVector);
+    }   
 }
