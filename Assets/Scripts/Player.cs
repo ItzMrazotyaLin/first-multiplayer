@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
             lastInteractDir = moveDir;
         }
 
-        float interactDistance = 2f;
+        float interactDistance = 1f;
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
         {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
