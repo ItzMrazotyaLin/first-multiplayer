@@ -4,5 +4,5 @@
 - Active game object:
   - Name: ClearCounter
   - Tag: Untagged
-  - Layer: Default
+  - Layer: Counetrs
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

@@ -702,6 +702,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   moveSpeed: 7
   gameInput: {fileID: 768913819}
+  countersLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!136 &1794673596
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -751,6 +754,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5089835405560525686, guid: baae061632c4db94dac5125d30b6c1bc, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5089835405560525686, guid: baae061632c4db94dac5125d30b6c1bc, type: 3}
       propertyPath: m_Name
       value: ClearCounter
