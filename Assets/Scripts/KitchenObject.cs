@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class KitchenObject : MonoBehaviour
@@ -12,7 +13,19 @@ public class KitchenObject : MonoBehaviour
 
     public void SetClearCounter(ClearCounter clearCounter)
     {
+        if (this.clearCounter != null)
+        {
+            this.clearCounter.ClearKitchenObject();
+        }
         this.clearCounter = clearCounter;
+        clearCounter.SetKitchenObject(this);
+
+        if (clearCounter.HasKitchenObject())
+        {
+            Debug.LogError("ClearCounter already has a KitchenObject!");
+        }
+        transform.parent = clearCounter.GetKitchenObjectFollowTransform();
+        transform.localPosition = Vector3.zero;
     }
 
     public ClearCounter GetClearCounter()
