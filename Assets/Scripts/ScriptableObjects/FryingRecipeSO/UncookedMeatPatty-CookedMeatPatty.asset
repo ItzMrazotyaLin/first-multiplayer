@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca41c5c4caed71848b7ff1255e965580, type: 3}
+  m_Name: UncookedMeatPatty-CookedMeatPatty
+  m_EditorClassIdentifier: Assembly-CSharp::FryingRecipeSO
+  input: {fileID: 11400000, guid: e1774eda13d88054e9715e66b13fed75, type: 2}
+  output: {fileID: 11400000, guid: 85bc1bd971ecbc346b83cc7f6c0a2417, type: 2}
+  fryingTimerMax: 5

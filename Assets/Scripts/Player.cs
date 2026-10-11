@@ -142,12 +142,13 @@ public class Player : MonoBehaviour, IKitchenObjectParent
                 {
                     SetSelectedCounter(baseCounter);
                 }
-            }
-            else { 
+            } else { 
                 SetSelectedCounter(null);
+                Debug.Log(raycastHit.transform);
             }
         } else { 
             SetSelectedCounter(null);
+            Debug.Log(raycastHit.transform);
         }
     }
 

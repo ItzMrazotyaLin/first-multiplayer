@@ -6,6 +6,7 @@ public class CuttingCounter : BaseCounter, IKitchenObjectParent
     [SerializeField] private CuttingRecipeSO[] CuttingRecipeSOArray;
     private int cuttingProgress;
 
+    public event EventHandler OnCut;
     public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
     public class OnProgressChangedEventArgs : EventArgs
     {
@@ -17,8 +18,7 @@ public class CuttingCounter : BaseCounter, IKitchenObjectParent
         {
             if (player.HasKitchenObject())
             {
-                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO())
-)
+                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
                 {
                     player.GetKitchenObject().SetKitchenObjectParent(this);
                     cuttingProgress = 0;
@@ -44,6 +44,15 @@ public class CuttingCounter : BaseCounter, IKitchenObjectParent
             }
             else
             {
+                cuttingProgress = 0;
+                if (HasRecipeWithInput(this.GetKitchenObject().GetKitchenObjectSO()))
+                {
+                    CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                    OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                    {
+                        progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
+                    });
+                }
                 GetKitchenObject().SetKitchenObjectParent(player);
             }
         }
@@ -54,6 +63,8 @@ public class CuttingCounter : BaseCounter, IKitchenObjectParent
         if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
             cuttingProgress++;
+
+            OnCut?.Invoke(this, EventArgs.Empty);
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
             OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
