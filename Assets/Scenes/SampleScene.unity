@@ -792,6 +792,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5300527196060117451, guid: 1f71f56d20191214ba1cb20027423051, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7341179750708870710, guid: 1f71f56d20191214ba1cb20027423051, type: 3}
       propertyPath: m_Name
       value: StoveCounter
