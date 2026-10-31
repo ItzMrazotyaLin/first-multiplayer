@@ -104,6 +104,8 @@ MonoBehaviour:
   counterTopPoint: {fileID: 6298084943683833881}
   fryingRecipeSOArray:
   - {fileID: 11400000, guid: 12d90d8f71c86fd4cb85c12e174a26d1, type: 2}
+  burningRecipeSOArray:
+  - {fileID: 11400000, guid: 080fb0d0989b28447bbe212b580c637e, type: 2}
 --- !u!1001 &2714175982595832811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -248,6 +250,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5123989167318604656}
     m_Modifications:
+    - target: {fileID: 17251720544094567, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4589716710238282922, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
       propertyPath: m_Name
       value: StoveCounter_Visual
@@ -299,8 +305,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4589716710238282922, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1793698390462994608}
   m_SourcePrefab: {fileID: 100100000, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+--- !u!1 &126158800684006978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5220305274835918574, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+  m_PrefabInstance: {fileID: 5310319279889866924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5300527196060117451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 17251720544094567, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+  m_PrefabInstance: {fileID: 5310319279889866924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8503913441425294342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4589716710238282922, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+  m_PrefabInstance: {fileID: 5310319279889866924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1793698390462994608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503913441425294342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0f970ff69e25b49992293cc1738e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoveCounterVisual
+  stoveCounter: {fileID: 6423333848136756716}
+  stoveOnGameObject: {fileID: 5300527196060117451}
+  particlesGameObject: {fileID: 126158800684006978}
 --- !u!4 &8503913441425294343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
