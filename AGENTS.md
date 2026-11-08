@@ -2,7 +2,7 @@
 - Project name: GavrilovUrii
 - Unity version: Unity 6000.5.9f1
 - Active game object:
-  - Name: Plate
+  - Name: DeliveryCounter
   - Tag: Untagged
-  - Layer: Default
+  - Layer: Counters
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
